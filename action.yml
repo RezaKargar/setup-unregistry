@@ -10,9 +10,9 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Install docker-pussh
+    - id: entrypoint
+      name: Run entrypoint.sh
+      run: entrypoint.sh
       shell: bash
-      run: |
-        ./${{ github.action_path }}/entrypoint.sh
       env:
         INPUT_VERSION: ${{ inputs.version }}
