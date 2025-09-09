@@ -1,0 +1,25 @@
+name: Test setup-unregistry
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version of the plugin to install via setup-unregistry'
+        required: false
+        default: 'latest'
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout test repo
+        uses: actions/checkout@v4
+
+      - name: Setup Unregistry
+        uses: RezaKargar/setup-unregistry@latest
+        with:
+          version: ${{ github.event.inputs.version }}
