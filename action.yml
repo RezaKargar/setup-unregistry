@@ -16,3 +16,7 @@ runs:
       run: ${{ github.action_path }}/entrypoint.sh
       env:
         INPUT_VERSION: ${{ inputs.version }}
+
+branding:
+  icon: "box"
+  color: "purple"
