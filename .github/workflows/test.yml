@@ -20,6 +20,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Unregistry
-        uses: RezaKargar/setup-unregistry@latest
+        uses: RezaKargar/setup-unregistry@main
         with:
           version: ${{ github.event.inputs.version }}
