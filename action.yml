@@ -1,18 +1,18 @@
-name: 'Install docker-pussh'
+name: 'Setup Unregistry'
 description: 'Installs the docker-pussh plugin for Docker CLI'
 author: 'Reza Kargar'
+
 inputs:
   version:
-    description: 'Version to install (e.g. v1.0.0 or "latest"). Defaults to "latest"'
+    description: 'Version to install (e.g. v1.0.0 or "latest"). Defaults to "latest".'
     required: false
     default: 'latest'
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
-    - id: entrypoint
-      name: Run entrypoint.sh
-      run: entrypoint.sh
+    - name: Run entrypoint
       shell: bash
+      run: ${{ github.action_path }}/entrypoint.sh
       env:
         INPUT_VERSION: ${{ inputs.version }}
